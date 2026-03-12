@@ -1,0 +1,21 @@
+{
+	"name": "Target",
+	"description": "A Target model represents something specific to woxx about such as an Article, URL, PDF, stock, etc..",
+	"base": "Woxx",
+	"idInjection": true,
+	"strict": false,
+	"options": {
+		"arangodb": {
+			"collection": "target"
+		},
+		"mongodb": {
+			"collection": "target"
+		}
+	},
+	"properties": {
+		"id": { "type": "Number", "id": true, "generated": true	},
+		"name": { "type": "String", "required": true },		// NoSQL vs Relation Databases
+		"targetType": { "type": "Array", "required": true } 	// [ "article", "pdf", "stock", "url", "custom" ]
+	},
+	"http": {"path": "/api/target"}
+}

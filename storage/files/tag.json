@@ -1,0 +1,31 @@
+{
+	"name": "Tag",
+	"description": "A Tag model represents high level subject categories & sub-categories such as Sports, Fashion, Finance, Politics, Government, etc..",
+	"base": "Woxx",
+	"idInjection": true,
+	"strict": false,
+	"options": {
+		"arangodb": {
+			"collection": "tag"
+		},
+		"mongodb": {
+			"collection": "tag"
+		}
+	},
+	"properties": {
+		"id": { "type": "Number", "id": true, "generated": true	},	
+		"name": { "type": "String", "required": true },				// Finance
+		"tagType": { "type": "Array", "required": true }, 			// [ "category", "subcategory" ]
+		"parent": { "type": "Object", "required": false } 			// Tag Object
+	},
+	"relations": {
+		"relations": {
+			"tag": {
+			  "model": "tag",
+			  "type": "belongsTo",
+			  "foreignKey": "parent"
+			}
+		}
+	},
+	"http": {"path": "/api/tag"}
+}
