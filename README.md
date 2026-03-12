@@ -1,59 +1,65 @@
-flag-icon-css
-=============
+# jQuery
 
-CSS for vector based country flags. See the
-[demo](http://lipis.github.io/flag-icon-css/).
+> jQuery is a fast, small, and feature-rich JavaScript library.
 
-Usage
------
+For information on how to get started and how to use jQuery, please see [jQuery's documentation](http://api.jquery.com/).
+For source files and issues, please visit the [jQuery repo](https://github.com/jquery/jquery).
 
-For using the flags inline with text add the classes `.flag-icon` and 
-`.flag-icon-xx` (where `xx` is the
-[ISO 3166-1-alpha-2 code](http://www.iso.org/iso/country_names_and_code_elements) 
-of a country) to an empty `<span>`. If you want to have a squared version flag
-then add the class `flag-icon-squared` as well. Example:
+## Including jQuery
 
-    <span class="flag-icon flag-icon-gr"></span>
-    <span class="flag-icon flag-icon-gr flag-icon-squared"></span>
+Below are some of the most common ways to include jQuery.
 
-You could also apply this to any element, but in that case you'll have to use the
-`flag-icon-background` instead of `flag-icon` and you're set. This will add the
-correct background with the following CSS properties:
+### Browser
 
-    background-size: contain;
-    background-position: 50%;
-    background-repeat: no-repeat;
+#### Script tag
 
-Which means that the flag is just going to appear in the middle of an element, so
-you will have to set manually the correct size of 4 by 3 ratio or if it's squared 
-add also the `flag-icon-squared` class.
+```html
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+```
 
+#### Babel
 
-Development
------------
+[Babel](http://babeljs.io/) is a next generation JavaScript compiler. One of the features is the ability to use ES6/ES2015 modules now, even though browsers do not yet support this feature natively.
 
-Run the `npm install` to install the dependencies after cloning the project and
-you'll be able to:
+```js
+import $ from "jquery";
+```
 
-To watch for changes and live reload if served
+#### Browserify/Webpack
 
-    $ grunt
+There are several ways to use [Browserify](http://browserify.org/) and [Webpack](https://webpack.github.io/). For more information on using these tools, please refer to the corresponding project's documention. In the script, including jQuery will usually look like this...
 
-To build `*.less` files
+```js
+var $ = require("jquery");
+```
 
-    $ grunt build
+#### AMD (Asynchronous Module Definition)
 
-To serve it on `localhost:8000`
+AMD is a module format built for the browser. For more information, we recommend [require.js' documentation](http://requirejs.org/docs/whyamd.html).
 
-    $ grunt connect
+```js
+define(["jquery"], function($) {
 
-To have only specific countries in the css file, remove the ones that you don't
-need from the
-[`flag-icon-list.less`](https://github.com/lipis/flag-icon-css/blob/master/less/flag-icon-list.less)
-file and build it again.
+});
+```
 
-Credits
--------
+### Node
 
-This project wouldn't exist without the awesome collection of svg flags:
-[koppi/iso-country-flags-svg-collection](https://github.com/koppi/iso-country-flags-svg-collection)
+To include jQuery in [Node](nodejs.org), first install with npm.
+
+```sh
+npm install jquery
+```
+
+For jQuery to work in Node, a window with a document is required. Since no such window exists natively in Node, one can be mocked by tools such as [jsdom](https://github.com/tmpvar/jsdom). This can be useful for testing purposes.
+
+```js
+require("jsdom").env("", function(err, window) {
+	if (err) {
+		console.error(err);
+		return;
+	}
+
+	var $ = require("jquery")(window);
+});
+```

@@ -1,12 +1,14 @@
 {
-  "name": "flag-icon-css",
-  "main": "css/flag-icon.min.css",
+  "name": "jquery",
+  "main": "dist/jquery.js",
+  "license": "MIT",
   "ignore": [
-      "**/.*",
-      "assets",
-      "Gruntfile.coffee",
-      "index.html",
-      "LICENSE",
-      "package.json"
+    "package.json"
+  ],
+  "keywords": [
+    "jquery",
+    "javascript",
+    "browser",
+    "library"
   ]
 }
