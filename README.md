@@ -1,28 +1,59 @@
-# CodeMirror
-[![Build Status](https://travis-ci.org/codemirror/CodeMirror.svg)](https://travis-ci.org/codemirror/CodeMirror)
-[![NPM version](https://img.shields.io/npm/v/codemirror.svg)](https://www.npmjs.org/package/codemirror)
-[![Join the chat at https://gitter.im/codemirror/CodeMirror](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/codemirror/CodeMirror)  
-[Funding status: ![maintainer happiness](https://marijnhaverbeke.nl/fund/status_s.png?again)](https://marijnhaverbeke.nl/fund/)
+flag-icon-css
+=============
 
-CodeMirror is a versatile text editor implemented in JavaScript for
-the browser. It is specialized for editing code, and comes with over
-100 language modes and various addons that implement more advanced
-editing functionality.
+CSS for vector based country flags. See the
+[demo](http://lipis.github.io/flag-icon-css/).
 
-A rich programming API and a CSS theming system are available for
-customizing CodeMirror to fit your application, and extending it with
-new functionality.
+Usage
+-----
 
-You can find more information (and the
-[manual](http://codemirror.net/doc/manual.html)) on the [project
-page](http://codemirror.net). For questions and discussion, use the
-[discussion forum](https://discuss.codemirror.net/).
+For using the flags inline with text add the classes `.flag-icon` and 
+`.flag-icon-xx` (where `xx` is the
+[ISO 3166-1-alpha-2 code](http://www.iso.org/iso/country_names_and_code_elements) 
+of a country) to an empty `<span>`. If you want to have a squared version flag
+then add the class `flag-icon-squared` as well. Example:
 
-See
-[CONTRIBUTING.md](https://github.com/codemirror/CodeMirror/blob/master/CONTRIBUTING.md)
-for contributing guidelines.
+    <span class="flag-icon flag-icon-gr"></span>
+    <span class="flag-icon flag-icon-gr flag-icon-squared"></span>
 
-The CodeMirror community aims to be welcoming to everybody. We use the
-[Contributor Covenant
-(1.1)](http://contributor-covenant.org/version/1/1/0/) as our code of
-conduct.
+You could also apply this to any element, but in that case you'll have to use the
+`flag-icon-background` instead of `flag-icon` and you're set. This will add the
+correct background with the following CSS properties:
+
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+
+Which means that the flag is just going to appear in the middle of an element, so
+you will have to set manually the correct size of 4 by 3 ratio or if it's squared 
+add also the `flag-icon-squared` class.
+
+
+Development
+-----------
+
+Run the `npm install` to install the dependencies after cloning the project and
+you'll be able to:
+
+To watch for changes and live reload if served
+
+    $ grunt
+
+To build `*.less` files
+
+    $ grunt build
+
+To serve it on `localhost:8000`
+
+    $ grunt connect
+
+To have only specific countries in the css file, remove the ones that you don't
+need from the
+[`flag-icon-list.less`](https://github.com/lipis/flag-icon-css/blob/master/less/flag-icon-list.less)
+file and build it again.
+
+Credits
+-------
+
+This project wouldn't exist without the awesome collection of svg flags:
+[koppi/iso-country-flags-svg-collection](https://github.com/koppi/iso-country-flags-svg-collection)
