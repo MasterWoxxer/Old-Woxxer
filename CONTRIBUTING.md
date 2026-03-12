@@ -1,45 +1,88 @@
-## Got a question or problem?
+# How to contribute
 
-Firstly, please go over our FAQ: https://github.com/angular-ui/bootstrap/wiki/FAQ
+- [Getting help](#getting-help)
+- [Submitting bug reports](#submitting-bug-reports)
+- [Contributing code](#contributing-code)
 
-Please, do not open issues for the general support questions as we want to keep GitHub issues for bug reports and feature requests. You've got much better chances of getting your question answered on [StackOverflow](http://stackoverflow.com/questions/tagged/angular-ui-bootstrap) where maintainers are looking at questions tagged with `angular-ui-bootstrap`.
+## Getting help
 
-StackOverflow is a much better place to ask questions since:
-* there are hundreds of people willing to help on StackOverflow
-* questions and answers stay available for public viewing so your question / answer might help someone else
-* SO voting system assures that the best answers are prominently visible.
+Community discussion, questions, and informal bug reporting is done on the
+[discuss.CodeMirror forum](http://discuss.codemirror.net).
 
-To save your and our time we will be systematically closing all the issues that are requests for general support and redirecting people to StackOverflow.
+## Submitting bug reports
 
-## You think you've found a bug?
+The preferred way to report bugs is to use the
+[GitHub issue tracker](http://github.com/codemirror/CodeMirror/issues). Before
+reporting a bug, read these pointers.
 
-Oh, we are ashamed and want to fix it asap! But before fixing a bug we need to reproduce and confirm it. In order to reproduce bugs we will systematically ask you to provide a _minimal_ reproduce scenario using http://plnkr.co/. Having a live reproduce scenario gives us wealth of important information without going back & forth to you with additional questions like:
-* version of AngularJS used
-* version of this library that you are using
-* 3rd-party libraries used, if any
-* and most importantly - a use-case that fails
+**Note:** The issue tracker is for *bugs*, not requests for help. Questions
+should be asked on the
+[discuss.CodeMirror forum](http://discuss.codemirror.net) instead.
 
-A minimal reproduce scenario using http://plnkr.co/ allows us to quickly confirm a bug (or point out coding problem) as well as confirm that we are fixing the right problem.
+### Reporting bugs effectively
 
-We will be insisting on a minimal reproduce scenario in order to save maintainers time and ultimately be able to fix more bugs. Interestingly, from our experience users often find coding problems themselves while preparing a minimal plunk. We understand that sometimes it might be hard to extract essentials bits of code from a larger code-base but we really need to isolate the problem before we can fix it.
+- CodeMirror is maintained by volunteers. They don't owe you anything, so be
+  polite. Reports with an indignant or belligerent tone tend to be moved to the
+  bottom of the pile.
 
-The best part is that you don't need to create plunks from scratch - you can use one from our [demo page](http://angular-ui.github.io/bootstrap/).
+- Include information about **the browser in which the problem occurred**. Even
+  if you tested several browsers, and the problem occurred in all of them,
+  mention this fact in the bug report. Also include browser version numbers and
+  the operating system that you're on.
 
-Unfortunately we are not able to investigate / fix bugs without a minimal reproduce scenario using http://plnkr.co/, so if we don't hear back from you we are going to close an issue that don't have enough info to be reproduced.
+- Mention which release of CodeMirror you're using. Preferably, try also with
+  the current development snapshot, to ensure the problem has not already been
+  fixed.
 
+- Mention very precisely what went wrong. "X is broken" is not a good bug
+  report. What did you expect to happen? What happened instead? Describe the
+  exact steps a maintainer has to take to make the problem occur. We can not
+  fix something that we can not observe.
 
-## You want to contribute some code?
+- If the problem can not be reproduced in any of the demos included in the
+  CodeMirror distribution, please provide an HTML document that demonstrates
+  the problem. The best way to do this is to go to
+  [jsbin.com](http://jsbin.com/ihunin/edit), enter it there, press save, and
+  include the resulting link in your bug report.
 
-We are always looking for the quality contributions and will be happy to accept your Pull Requests as long as those adhere to some basic rules:
+## Contributing code
 
-* Please make sure that your contribution fits well in the project's context:
-  * we are aiming at rebuilding bootstrap directives in pure AngularJS, without any dependencies on any external JavaScript library;
-  * the only dependency should be bootstrap CSS and its markup structure;
-  * directives should be html-agnostic as much as possible which in practice means:
-        * templates should be referred to using the `templateUrl` property
-        * it should be easy to change a default template to a custom one
-        * directives shouldn't manipulate DOM structure directly (when possible)
-* Please assure that you are submitting quality code, specifically make sure that:
-  * your directive has accompanying tests and all the tests are passing; don't hesitate to contact us (angular-ui@googlegroups.com) if you need any help with unit testing
-  * your PR doesn't break the build; check the Travis-CI build status after opening a PR and push corrective commits if anything goes wrong
-  * your commits conform to the conventions established [here](https://github.com/stevemao/conventional-changelog-angular/blob/master/convention.md)
+- Make sure you have a [GitHub Account](https://github.com/signup/free)
+- Fork [CodeMirror](https://github.com/codemirror/CodeMirror/)
+  ([how to fork a repo](https://help.github.com/articles/fork-a-repo))
+- Make your changes
+- If your changes are easy to test or likely to regress, add tests.
+  Tests for the core go into `test/test.js`, some modes have their own
+  test suite under `mode/XXX/test.js`. Feel free to add new test
+  suites to modes that don't have one yet (be sure to link the new
+  tests into `test/index.html`).
+- Follow the general code style of the rest of the project (see
+  below). Run `bin/lint` to verify that the linter is happy.
+- Make sure all tests pass. Visit `test/index.html` in your browser to
+  run them.
+- Submit a pull request
+([how to create a pull request](https://help.github.com/articles/fork-a-repo)).
+  Don't put more than one feature/fix in a single pull request.
+
+By contributing code to CodeMirror you
+
+ - agree to license the contributed code under CodeMirror's [MIT
+   license](http://codemirror.net/LICENSE).
+
+ - confirm that you have the right to contribute and license the code
+   in question. (Either you hold all rights on the code, or the rights
+   holder has explicitly granted the right to use it like this,
+   through a compatible open source license or through a direct
+   agreement with you.)
+
+### Coding standards
+
+- 2 spaces per indentation level, no tabs.
+
+- Note that the linter (`bin/lint`) which is run after each commit
+  complains about unused variables and functions. Prefix their names
+  with an underscore to muffle it.
+
+- CodeMirror does *not* follow JSHint or JSLint prescribed style.
+  Patches that try to 'fix' code to pass one of these linters will be
+  unceremoniously discarded.
