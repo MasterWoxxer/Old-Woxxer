@@ -1,0 +1,52 @@
+{
+  "name": "Collector",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string"
+    },
+    "headerURL": {
+      "type": "string"
+    },
+    "shareImageURL": {
+      "type": "string"
+    },
+    "thankYouPageContent": {
+      "type": "string"
+    },
+    "overlayText": {
+      "type": "string"
+    },
+    "shareText": {
+      "type": "string"
+    },
+    "twitterText": {
+      "type": "string"
+    },
+    "created": {
+      "type": "date"
+    },
+    "items": {
+      "type": [
+        "object"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

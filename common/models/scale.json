@@ -1,0 +1,35 @@
+{
+  "name": "Scale",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "required": true
+    },
+    "order": {
+      "type": "number"
+    },
+    "orientation": {
+      "type": "string"
+    },
+    "min": {
+      "type": "object"
+    },
+    "max": {
+      "type": "object"
+    },
+    "collectorItemId": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
